@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+}
+
+.button-icon {
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
