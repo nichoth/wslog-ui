@@ -8,11 +8,13 @@
   "dependencies": {
     "clipboard-copy": "^1.4.2",
     "feather-icons": "^4.5.0",
+    "lodash": "^4.17.5",
     "pico-stream": "0.0.2",
     "pull-notify": "^0.1.1",
     "pull-pushable": "^2.1.2",
     "pull-stream": "^3.6.1",
     "pull-stream-util": "^0.1.1",
+    "ramda": "^0.25.0",
     "ws": "^4.0.0",
     "xtend": "^4.0.1"
   },
