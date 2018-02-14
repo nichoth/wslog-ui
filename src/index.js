@@ -47,9 +47,12 @@ S( msgs$,
     app.sink
 )
 
+var dom = app.source
+var withState = WithState(state$)
+
 // copy session as ndjson to clipboard
 S(
-    _.sample.toArray(state$.listen(), app.source.copySession()),
+    withState(dom.copySession()),
     S.map(([state, index]) => {
         return toNdJson(state.sessions[index])
     }),
@@ -58,7 +61,7 @@ S(
 
 // copy events to clipboard
 S(
-    _.sample.toArray(state$.listen(), app.source.copyEvents()),
+    withState(dom.copyEvents()),
     S.map(([state, index]) => {
         return toNdJson(state.grouped[index].event)
     }),
@@ -67,12 +70,18 @@ S(
 
 // copy states to clipboard
 S(
-    _.sample.toArray(state$.listen(), app.source.copyStates()),
+    withState(dom.copyStates()),
     S.map(([state, index]) => {
         return toNdJson(state.grouped[index].state)
     }),
     CopySink()
 )
+
+function WithState (state$) {
+    return function (stream) {
+        return _.sample.toArray(state$.listen(), stream)
+    }
+}
 
 function toNdJson (ary) {
     return ary.reduce(function (acc, data) {
