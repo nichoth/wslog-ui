@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "clipboard-copy": "^1.4.2",
-    "feather-icons": "^4.5.0",
     "pico-stream": "0.0.2",
     "pull-notify": "^0.1.1",
     "pull-pushable": "^2.1.2",

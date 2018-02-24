@@ -21,7 +21,12 @@ function ButtonCopy (props) {
 function App (props) {
     // console.log('render', props)
     return h('div', {}, [
-        Sessions(props)
+        h('div', { class: 'menu' }, [
+            'this is the menu'
+        ]),
+        h('div', { class: 'app-body' }, [
+            Sessions(props)
+        ])
     ])
 }
 

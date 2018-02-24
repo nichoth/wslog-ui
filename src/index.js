@@ -1,13 +1,12 @@
 var S = require('pull-stream')
 var _ = require('pull-stream-util')
-// var r = require('ramda')
 var xtend = require('xtend')
 var pushable = require('pull-pushable')
 var Notify = require('pull-notify')
 var render = require('pico-stream')
-var client = window.client = require('@nichoth/wslog/client')()
-var App = require('./view/app')
+var Client = window.client = require('@nichoth/wslog/client')
 var clipboardCopy = require('clipboard-copy')
+var App = require('./view/app')
 
 // view events
 var EVENTS = ['copySession', 'copyEvents', 'copyStates']
@@ -115,6 +114,7 @@ socket.addEventListener('close', function (ev) {
     console.log('close', ev)
 })
 
+var client = Client()
 client.state({ hello: 'woo' })
 client.event(['update', { hello: 'world' }])
 client.state({ hello: 'world' })
